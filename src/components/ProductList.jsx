@@ -1,12 +1,17 @@
 import React from 'react';
 import ProductCard from './ProductCard';
 
-const ProductList = ({ products }) => {
-  // TODO: Check if the product list is empty and display a message if needed
-
+const ProductList = ({ products}) => {
+  
   return (
-    <div>
-      {/* TODO: Iterate over the products array and render a ProductCard for each product */}
+    <div className="grid">
+      
+      { 
+        products.length === 0
+        ? <p>no products in stock</p>
+        : products.map(product => <ProductCard product={product} key={product.id}/> )
+      }
+      
     </div>
   );
 };
