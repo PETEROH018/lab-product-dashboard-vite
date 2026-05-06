@@ -3,25 +3,23 @@ import ProductList from './components/ProductList';
 import { Button } from '@mui/material';
 
 const App = () => {
-  const products = [
-    { id: 1, name: "Wireless Mouse", price: 29.99, inStock: true },
-    { id: 2, name: "Mechanical Keyboard", price: 89.99, inStock: false },
-    { id: 3, name: "USB-C Hub", price: 45.00, inStock: true },
-    { id: 4, name: "Monitor Stand", price: 34.50, inStock: false },
-    { id: 5, name: "LED Desk Lamp", price: 25.00, inStock: false },
-    { id: 6, name: "Noise Cancelling Headphones", price: 199.99, inStock: true },
-    { id: 7, name: "Webcam 1080p", price: 59.95, inStock: true },
-    { id: 8, name: "Portable SSD 1TB", price: 120.00, inStock: false }
+  const sampleProducts = [
+    { id: 1, name: 'Laptop', price: '$999', inStock: true },
+    { id: 2, name: 'Phone', price: '$699', inStock: false },
+    { id: 3, name: 'Tablet', price: '$499', inStock: true },
   ]
 
-  const [selectedProducts,setSelectedProducts]=useState(products)
+  const [selectedProducts,setSelectedProducts]=useState(sampleProducts)
   function handleInStockFilter(){
-    setSelectedProducts(products.filter(product => product.inStock === true))
-    return 
+    setSelectedProducts(sampleProducts.filter(product => product.inStock === true))
+    
   }
   function handleOutOfStockFilter(){
-    setSelectedProducts(products.filter(product => product.inStock === false))
+    setSelectedProducts(sampleProducts.filter(product => product.inStock === false))
 
+  }
+  function handleRemoveProduct(id){
+    setSelectedProducts(sampleProducts.filter(product => product.id !== id ))
   }
 
   
@@ -33,7 +31,7 @@ const App = () => {
       <Button variant = "contained" sx={{ mr: 2 }} color= "success" onClick={handleInStockFilter}>InStock</Button>
       <Button variant = "contained" color="error" onClick={handleOutOfStockFilter}>OutOfStock</Button>
 
-      <ProductList products={selectedProducts} />
+      <ProductList products={selectedProducts} handleRemoveProduct={handleRemoveProduct} />
       
     </div>
   );

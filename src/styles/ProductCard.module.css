@@ -1,15 +1,15 @@
-.card {
+:global(.card) {
   max-width: 345px;
   border-radius: 12px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Subtle shadow */
   padding: 16px;
 }
-.card:hover {
+:global(.card):hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* Stronger shadow on hover */
   transform: translateY(-4px);
 }
-.outOfStockCard{
+:global(.outOfStockClass){
   max-width: 345px;
   border-radius: 12px;
   transition: all 0.3s ease;
@@ -18,7 +18,7 @@
   color: #d32f2f; /* error.main */
   border-color: #d32f2f;
 }
-.outOfStockCard:hover {
+:global(.outOfStockCard):hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* Stronger shadow on hover */
   transform: translateY(-4px);
   background-color: rgba(211, 47, 47, 0.08);
